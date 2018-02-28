@@ -1,0 +1,24 @@
+/* Styles for viz framework */
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+#WebGL-output {
+    position: relative;
+}
+.title {
+    position: absolute;
+    width: 100%;
+    top: 1%;
+    left: 0%;
+}
+.info {
+    position: absolute;
+    width: 10%;
+    bottom: 2%;
+    left: 2.5%;
+}
+.info img {
+    width: 100%;
+}
