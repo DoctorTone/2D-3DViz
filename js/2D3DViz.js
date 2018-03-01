@@ -91,7 +91,7 @@ $(document).ready( () => {
     let container = document.getElementById("WebGL-output");
     let app = new Framework();
     app.init(container);
-    app.createGUI();
+    //app.createGUI();
     app.createScene();
 
     app.run();
