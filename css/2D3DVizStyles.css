@@ -4,6 +4,9 @@ body {
     margin: 0;
     overflow: hidden;
 }
+#visualisations {
+    overflow: visible;
+}
 #WebGL-output {
     position: relative;
 }
@@ -21,4 +24,17 @@ body {
 }
 .info img {
     width: 100%;
+}
+.animateDisappear {
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-name: disappear;
+}
+@keyframes disappear {
+    0% {
+        transform: scale(1, 1);
+    }
+    100% {
+        transform: scale(0, 0);
+    }
 }

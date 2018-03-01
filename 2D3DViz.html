@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=0, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>2D - 3D Visualisations</title>
 
@@ -15,7 +15,7 @@
     <script src="js/jquery-3.3.1.slim.min.js"></script>
     <script src="js/TrackballControls.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/baseApp.js?v=0.2"></script>
+    <script src="js/baseApp.js?v=0.3"></script>
     <script src="js/sceneConfig.js?v=0.2"></script>
     <script src="js/controlKit.min.js?v=0.1"></script>
     <script src="js/Detector.js?v=0.1"></script>
@@ -24,29 +24,31 @@
 </head>
 <body>
 
-    <div class="text-center">
-        <h1>2D Visualisation Styles</h1>
-        <h3>Click on the image to see the 3D version</h3>
-    </div>
-    <div class="mt-4 container text-center">
-        <div class="row">
-            <div class="col-md-4">
-                <figure class="figure">
-                    <img src="images/bar-chart.png" class="figure-img img-fluid">
-                    <figcaption class="figure-caption">Bar chart</figcaption>
-                </figure>
-            </div>
-            <div class="col-md-4">
-                <figure class="figure">
-                    <img src="images/pie-chart.png" class="figure-img img-fluid">
-                    <figcaption class="figure-caption">Pie chart</figcaption>
-                </figure>
-            </div>
-            <div class="col-md-4">
-                <figure class="figure">
-                    <img src="images/line-chart.png" class="figure-img img-fluid">
-                    <figcaption class="figure-caption">Line chart</figcaption>
-                </figure>
+    <div id="visualisations">
+        <div class="text-center">
+            <h1>2D Visualisation Styles</h1>
+            <h3>Click on the image to see the 3D version</h3>
+        </div>
+        <div class="mt-4 container text-center">
+            <div class="row">
+                <div class="col-md-4">
+                    <figure id="fig1" class="figure">
+                        <img src="images/bar-chart.png" class="figure-img img-fluid">
+                        <figcaption class="figure-caption">Bar chart</figcaption>
+                    </figure>
+                </div>
+                <div class="col-md-4">
+                    <figure class="figure">
+                        <img src="images/pie-chart.png" class="figure-img img-fluid">
+                        <figcaption class="figure-caption">Pie chart</figcaption>
+                    </figure>
+                </div>
+                <div class="col-md-4">
+                    <figure class="figure">
+                        <img src="images/line-chart.png" class="figure-img img-fluid">
+                        <figcaption class="figure-caption">Line chart</figcaption>
+                    </figure>
+                </div>
             </div>
         </div>
     </div>

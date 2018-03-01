@@ -88,12 +88,22 @@ $(document).ready( () => {
         return;
     }
 
-    let container = document.getElementById("WebGL-output");
-    let app = new Framework();
-    app.init(container);
-    //app.createGUI();
-    app.createScene();
+    let elem = $("#fig1");
+    elem.on("click", () => {
+        elem.addClass("animateDisappear");
+    });
 
-    app.run();
+    elem.on("animationend", () => {
+        $('#visualisations').addClass("d-none");
+        $('#WebGL-output').removeClass("d-none");
+        let container = document.getElementById("WebGL-output");
+        let app = new Framework();
+        app.init(container);
+        //app.createGUI();
+        app.createScene();
+
+        app.run();
+    });
 
 });
+
