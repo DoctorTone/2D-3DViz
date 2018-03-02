@@ -4,6 +4,12 @@
 class Framework extends BaseApp {
     constructor() {
         super();
+
+        this.appRunning = false;
+    }
+
+    setContainer(container) {
+        this.container = container;
     }
 
     init(container) {
@@ -21,10 +27,12 @@ class Framework extends BaseApp {
         //Add ground plane
         this.addGround();
 
+        let blockGroup = new THREE.Group();
+        this.root.add(blockGroup);
         let geom = new THREE.BoxBufferGeometry(30, 30, 30, 8, 8);
         let mat = new THREE.MeshLambertMaterial({color: 0xff0000});
         let mesh = new THREE.Mesh(geom, mat);
-        this.root.add(mesh);
+        blockGroup.add(mesh);
     }
 
     createGUI() {
@@ -80,6 +88,21 @@ class Framework extends BaseApp {
         let delta = this.clock.getDelta();
         this.elapsedTime += delta;
     }
+
+    refresh() {
+        if(!this.appRunning) {
+            if(!this.container) {
+                console.log("No container set!");
+                return;
+            }
+            this.init(this.container);
+            //app.createGUI();
+            this.createScene();
+
+            this.run();
+            this.appRunning = true;
+        }
+    }
 }
 
 $(document).ready( () => {
@@ -87,6 +110,10 @@ $(document).ready( () => {
         $('#notSupported').show();
         return;
     }
+
+    let container = document.getElementById("WebGL-output");
+    let app = new Framework();
+    app.setContainer(container);
 
     let elem = $("#fig1");
     elem.on("click", () => {
@@ -96,14 +123,14 @@ $(document).ready( () => {
     elem.on("animationend", () => {
         $('#visualisations').addClass("d-none");
         $('#WebGL-output').removeClass("d-none");
-        let container = document.getElementById("WebGL-output");
-        let app = new Framework();
-        app.init(container);
-        //app.createGUI();
-        app.createScene();
 
-        app.run();
+        app.refresh();
     });
 
+    $('#back').on("click", () => {
+        elem.removeClass("animateDisappear");
+        $('#visualisations').removeClass("d-none");
+        $('#WebGL-output').addClass("d-none");
+    })
 });
 

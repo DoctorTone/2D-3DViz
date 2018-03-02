@@ -25,6 +25,24 @@ body {
 .info img {
     width: 100%;
 }
+.info2D {
+    position: absolute;
+    width: 10%;
+    top: 1%;
+    left: 1%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 0 1%;
+}
+.info2D img {
+    width: 100%;
+}
+.back {
+    position: absolute;
+    width: 10%;
+    bottom: 1%;
+    left: 2%;
+}
 .animateDisappear {
     animation-duration: 2s;
     animation-iteration-count: 1;
