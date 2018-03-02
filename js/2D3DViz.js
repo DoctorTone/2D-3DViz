@@ -28,11 +28,17 @@ class Framework extends BaseApp {
         this.addGround();
 
         let blockGroup = new THREE.Group();
+        blockGroup.name = "BarChart";
         this.root.add(blockGroup);
         let geom = new THREE.BoxBufferGeometry(30, 30, 30, 8, 8);
         let mat = new THREE.MeshLambertMaterial({color: 0xff0000});
         let mesh = new THREE.Mesh(geom, mat);
         blockGroup.add(mesh);
+
+        let pieBlock = new THREE.Group();
+        pieBlock.name = "PieChart";
+        this.root.add(pieBlock);
+
     }
 
     createGUI() {
@@ -115,12 +121,14 @@ $(document).ready( () => {
     let app = new Framework();
     app.setContainer(container);
 
-    let elem = $("#fig1");
-    elem.on("click", () => {
-        elem.addClass("animateDisappear");
+    let elems = $('[id^="fig"]');
+    let pickedElem;
+    elems.on("click", function() {
+        pickedElem = this;
+        $(this).addClass("animateDisappear");
     });
 
-    elem.on("animationend", () => {
+    elems.on("animationend", () => {
         $('#visualisations').addClass("d-none");
         $('#WebGL-output').removeClass("d-none");
 
@@ -128,7 +136,7 @@ $(document).ready( () => {
     });
 
     $('#back').on("click", () => {
-        elem.removeClass("animateDisappear");
+        $(pickedElem).removeClass("animateDisappear");
         $('#visualisations').removeClass("d-none");
         $('#WebGL-output').addClass("d-none");
     })
