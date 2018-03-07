@@ -34,10 +34,17 @@ class Framework extends BaseApp {
         let mat = new THREE.MeshLambertMaterial({color: 0xff0000});
         let mesh = new THREE.Mesh(geom, mat);
         blockGroup.add(mesh);
+        blockGroup.visible = false;
 
         let pieBlock = new THREE.Group();
         pieBlock.name = "PieChart";
         this.root.add(pieBlock);
+        let loader = new THREE.JSONLoader();
+        loader.load("models/pieChart.json", (geometry, materials) => {
+            let material = materials[0];
+            let mesh = new THREE.Mesh(geometry, material);
+            pieBlock.add(mesh);
+        });
 
     }
 
